@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WEBSITE FOR BUSINESS PURPOSES</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function addToCart(productName, price) {
+            var cart = document.getElementById('cart');
+            var totalElement = document.getElementById('total');
+            var total = parseFloat(totalElement.textContent.replace('Total: $', '')) || 0;
+
+            var cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = productName + ' - $' + price.toFixed(2);
+
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () {
+                cartItem.remove();
+                total -= price;
+                totalElement.textContent = 'Total: $' + total.toFixed(2);
+            };
+
+            cartItem.appendChild(deleteButton);
+            cart.appendChild(cartItem);
+            total += price;
+            totalElement.textContent = 'Total: $' + total.toFixed(2);
+        }
+
+        function buyNow() {
+            var total = parseFloat(document.getElementById('total').textContent.replace('Total: $', ''));
+            alert('Thank you for your purchase! Total amount: $' + total.toFixed(2));
+        }
+    </script>
+</head>
+
+<body>
+
+    <p id="countup">0 0 0 0</p>
+
+    <script>
+        // Set the start time
+        var startTime = new Date().getTime();
+
+        // Update the count-up every 1 second
+        var x = setInterval(function () {
+
+            // Get the current time
+            var now = new Date().getTime();
+
+            // Calculate the elapsed time
+            var elapsedTime = now - startTime;
+
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+            // Display the count-up in the element with id="countup"
+            document.getElementById("countup").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+        }, 1000); // Update every 1 second
+    </script>
+
+    <div class="banner">
+
+        <div class="content">
+            <div>
+                <button type="button"><span></span>Your Cart</button>
+                <button type="button"><span></span>Order Now</button>
+            </div>
+            <p>Your Ultimate Destination for Sustainable Style and Savings <br>- Order
+                Now!!! -
+            </p>
+        </div>
+    </div>
+
+    <div class="popup-overlay">
+        <div class="popup-container">
+
+            <div class="left">
+                <video width="400" autoplay muted>
+                    <source src="image/Bunny.mp4" type="video/mp4">
+                    <source src="mov_bbb.ogg" type="video/ogg">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+
+            <div class="right">
+                <div class="skip-button">Skip in 3s</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+    <h2 id="tote">Tote Bag</h2>
+    <div class="tote">
+        <div class="black">
+            <img src="image/black_love.jpg" alt="">
+            <p class="price">$34.99</p>
+            <button type="button" onclick="addToCart('BLACK LOVE TOTE BAG', 34.99)">Add To Cart</button>
+        </div>
+        <div class="blue">
+            <img src="image/blue.jpg" alt="">
+            <p class="price">$33.99</p>
+            <button type="button" onclick="addToCart('BLUE TOTE BAG', 33.99)">Add To Cart</button>
+        </div>
+        <div class="brown">
+            <img src="image/brown.jpg" alt="">
+            <p class="price">$32.99</p>
+            <button type="button" onclick="addToCart('BROWN TOTE BAG', 32.99)">Add To Cart</button>
+        </div>
+        <div class="white">
+            <img src="image/brown_white.jpg" alt="">
+            <p class="price">$31.99</p>
+            <button type="button" onclick="addToCart('WITH ZIPPER & INNER POCKET BROWN TOTE BAG', 31.99)">Add To
+                Cart</button>
+        </div>
+    </div>
+
+    <h2 id="skirts">Skirts</h2>
+    <div class="tote">
+        <div class="black">
+            <img src="image/skirt1.jpg" alt="">
+            <p class="price">$23.99</p>
+            <button type="button" onclick="addToCart('KHAKI SKIRT', 23.99)">Add To Cart</button>
+        </div>
+        <div class="blue">
+            <img src="image/skirt2.jpg" alt="">
+            <p class="price">$22.99</p>
+            <button type="button" onclick="addToCart('PINK SKIRT', 22.99)">Add To Cart</button>
+        </div>
+        <div class="brown">
+            <img src="image/skirt3.jpg" alt="">
+            <p class="price">$19.99</p>
+            <button type="button" onclick="addToCart('WHITE FORMAL SKIRT', 21.99)">Add To Cart</button>
+        </div>
+        <div class="white">
+            <img src="image/skirt4.jpg" alt="">
+            <p class="price">$20.99</p>
+            <button type="button" onclick="addToCart('SKIRT WITH GLITTERS', 20.99)">Add To Cart</button>
+        </div>
+    </div>
+
+    <h2 id="tshirt">Tshirt</h2>
+    <div class="tote">
+        <div class="black">
+            <img src="image/tshirt1.jpg" alt="">
+            <p class="price">$26.99</p>
+            <button type="button" onclick="addToCart('BLUE VIOLET POLO SHIRT FOR WOMEN', 26.99)">Add To Cart</button>
+        </div>
+        <div class="blue">
+            <img src="image/tshirt2.jpg" alt="">
+            <p class="price">$25.99</p>
+            <button type="button" onclick="addToCart('BLUE POLO FOR WOMEN', 25.99)">Add To Cart</button>
+        </div>
+        <div class="brown">
+            <img src="image/tshirt3.jpg" alt="">
+            <p class="price">$15.99</p>
+            <button type="button" onclick="addToCart('3/4 POLO SHIRT FOR WOMEN', 15.99)">Add To Cart</button>
+        </div>
+        <div class="white">
+            <img src="image/tshirt4.jpg" alt="">
+            <p class="price">$30.99</p>
+            <button type="button" onclick="addToCart('RED SHIRT', 30.99)">Add To Cart</button>
+        </div>
+    </div>
+
+    <h2 id="dress">Dress</h2>
+    <div class="tote">
+        <div class="black">
+            <img src="image/dress1.jpg" alt="">
+            <p class="price">$30.99</p>
+            <button type="button" onclick="addToCart('FLORAL DRESS', 30.99)">Add To Cart</button>
+        </div>
+        <div class="blue">
+            <img src="image/dress2.jpg" alt="">
+            <p class="price">$32.99</p>
+            <button type="button" onclick="addToCart('LIGHT BLUR DRESS', 32.99)">Add To Cart</button>
+        </div>
+        <div class="brown">
+            <img src="image/dress3.jpg" alt="">
+            <p class="price">$19.99</p>
+            <button type="button" onclick="addToCart('WHITE SMALL FLORAL DRESS', 19.99)">Add To Cart</button>
+        </div>
+        <div class="white">
+            <img src="image/dress4.jpg" alt="">
+            <p class="price">$35.99</p>
+            <button type="button" onclick="addToCart('BROWN DRESS', 35.99)">Add To Cart</button>
+        </div>
+    </div>
+
+    <div id="cart" class="cart">
+        <h2>Cart Items</h2>
+    </div>
+    <div id="total">Total: $0.00</div>
+    <button onclick="buyNow()">Buy Now</button>
+
+    <script src="main.js"></script>
+</body>
+<footer>
+    <p>&copy; 2023 Princess Olorvida. All rights reserved.</p>
+</footer>
+
+</html>
